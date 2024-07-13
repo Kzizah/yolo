@@ -3,8 +3,8 @@ version: '3.8'
 services:
   backend:
     build: 
-      context: .
-      dockerfile: Dockerfile.backend  # Dockerfile for the backend
+      context: ./backend
+      dockerfile: dockerfile # Dockerfile for the backend
     ports:
       - "5000:5000"  # Expose port 5000 for the backend
     environment:
@@ -12,9 +12,9 @@ services:
     depends_on:
       - mongo  # Ensure mongo service is started before backend
 
-  frontend:
+  client:
     build: 
-      context: ./frontend  # Path to the frontend project directory
+      context: ./client  # Path to the frontend project directory
       dockerfile: Dockerfile  # Dockerfile for the frontend
     ports:
       - "3000:3000"  # Expose port 3000 for the frontend
