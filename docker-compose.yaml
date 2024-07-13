@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: .
+      dockerfile: Dockerfile.backend  # Dockerfile for the backend
+    ports:
+      - "5000:5000"  # Expose port 5000 for the backend
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/yolomy  # MongoDB connection string
+    depends_on:
+      - mongo  # Ensure mongo service is started before backend
+
+  frontend:
+    build: 
+      context: ./frontend  # Path to the frontend project directory
+      dockerfile: Dockerfile  # Dockerfile for the frontend
+    ports:
+      - "3000:3000"  # Expose port 3000 for the frontend
+    depends_on:
+      - backend  # Ensure backend service is started before frontend
+
+  mongo:
+    image: mongo:latest  # Use the latest MongoDB image
+    ports:
+      - "27017:27017"  # Expose port 27017 for MongoDB
+    volumes:
+      - mongodata:/data/db  # Persist MongoDB data
+
+volumes:
+  mongodata:
+    # Docker volume for persisting MongoDB data
