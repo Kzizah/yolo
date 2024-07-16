@@ -1,25 +1,29 @@
-version: '3.8'
+version: '3.8'  # Docker Compose file version
 
 services:
   backend:
-    build: 
+    build:
       context: ./backend
-      dockerfile: dockerfile # Dockerfile for the backend
+      dockerfile: Dockerfile  # Assuming Dockerfile is in the backend directory
     ports:
       - "5000:5000"  # Expose port 5000 for the backend
     environment:
       - MONGODB_URI=mongodb://mongo:27017/yolomy  # MongoDB connection string
     depends_on:
       - mongo  # Ensure mongo service is started before backend
+    networks:
+      - yolo-network  # Attach backend to the yolo-network
 
   client:
-    build: 
+    build:
       context: ./client  # Path to the frontend project directory
-      dockerfile: Dockerfile  # Dockerfile for the frontend
+      dockerfile: Dockerfile  # Assuming Dockerfile is in the client directory
     ports:
       - "3000:3000"  # Expose port 3000 for the frontend
     depends_on:
       - backend  # Ensure backend service is started before frontend
+    networks:
+      - yolo-network  # Attach client to the yolo-network
 
   mongo:
     image: mongo:latest  # Use the latest MongoDB image
@@ -27,7 +31,13 @@ services:
       - "27017:27017"  # Expose port 27017 for MongoDB
     volumes:
       - mongodata:/data/db  # Persist MongoDB data
+    networks:
+      - yolo-network  # Attach mongo to the yolo-network
+
+networks:
+  yolo-network:  # Define yolo-network
+    driver: bridge
 
 volumes:
-  mongodata:
-    # Docker volume for persisting MongoDB data
+  mongodata:  # Define Docker volume for MongoDB data
+    driver: local
