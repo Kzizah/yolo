@@ -4,9 +4,10 @@
 ## 2. Dockerfile directives used in the creation and running of each container.
  I used two Dockerfiles. One for the Client and the other one for the Backend.
 
- **Client Dockerfile**
- !["Client Dockerfile"](images/client_Dockerfile.png)
+**Client Dockerfile**
 
- **Backend Dockerfile**
+!["Client Dockerfile"](images/client_Dockerfile.png)
+
+**Backend Dockerfile**
 
 !["Backend Dockerfile"](images/Backend_Dockerfile.png)
