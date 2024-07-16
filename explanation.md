@@ -87,3 +87,36 @@ RUN npm prune --production && \
 CMD ["npm", "start"]
 
 ```
+
+## 3. Docker Compose Networking
+The Docker Compose file (docker-compose.yml) defines the networking configuration for the project. It includes the allocation of application ports. The relevant sections are as follows:
+
+
+```
+services:
+  backend:
+    # ...
+    ports:
+      - "5000:5000"
+    networks:
+      - yolo-network
+
+  client:
+    # ...
+    ports:
+      - "3000:3000"
+    networks:
+      - yolo-network
+  
+  mongodb:
+    # ...
+    ports:
+      - "27017:27017"
+    networks:
+      - yolo-network
+
+networks:
+  yolo-network:
+    driver: bridge
+```
+In this configuration, the backend container is mapped to port 5000 of the host, the client container is mapped to port 3000 of the host, and mongodb container is mapped to port 27017 of the host. All containers are connected to the yolo-network bridge network.
