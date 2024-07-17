@@ -172,4 +172,4 @@ To achieve the task the following git workflow was used:
 The client side successfully executed on port 3000.
 
 **Client Side**
-!["Client side"](images/frontendwebsite.jpeg)
+!["Client side"](images/frontendwebsite.png)
