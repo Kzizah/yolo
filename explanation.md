@@ -1,5 +1,10 @@
 ## 1. Choice of Base Image
  The base image used to build the containers is `node:16-alpine3.16`. This image is derived from the Alpine Linux distribution, making it lightweight and compact. Additionally, it includes Node.js version 16, which exceeds the version required by the application.
+ Used 
+ 1. Client:`node:16-alpine3.16`
+ 2. Backend: `node:16-alpine3.16`
+ 3.Mongo : `mongo:6.0 `
+       
 
 ## 2. Dockerfile directives used in the creation and running of each container.
  I used two Dockerfiles. One for the Client and the other one for the Backend.
@@ -134,3 +139,31 @@ volumes:
 
 ```
 This volume, mongodb_data, is designated for storing MongoDB data. It ensures that the data remains intact and is not lost even if the container is stopped or deleted.
+
+## 5. Git Workflow to achieve the task
+
+To achieve the task the following git workflow was used:
+
+1. Fork the repository from the original repository.
+2. Clone the repo: `git@github.com:Kzizah/yolo.git`
+3. Create a .gitignore file to exclude unnecessary     files and directories from version control.
+4. Added Dockerfile for the client to the repo:
+`git add client/Dockerfile`
+5. Add Dockerfile for the backend to the repo:
+`git add backend/dockerfile`
+6. Committed the changes:
+`git commit -m "Added Dockerfiles"`
+7. Added docker-compose file to the repo:
+`git add docker-compose.yml`
+8. Committed the changes:
+`git commit -m "Added docker-compose file"`
+9. Pushed the files to github:
+`git push `
+10. Built the client and backend images:
+`docker compose build`
+11. Pushed the built imags to docker registry:
+`docker compose push`
+12. Deployed the containers using docker compose:
+`docker compose up`
+
+13. Created explanation.md file and modified it as the commit messages in the repo will explain.
