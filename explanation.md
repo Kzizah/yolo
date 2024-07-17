@@ -170,6 +170,7 @@ To achieve the task the following git workflow was used:
 
 ## 6. Successful running of the applications and if not, debugging measures applied.
 The client side successfully executed on port 3000.
+!["Client side"](images/successful_compilation.png)
 
 **Client Side**
 !["Client side"](images/frontendwebsite.png)
