@@ -167,3 +167,9 @@ To achieve the task the following git workflow was used:
 `docker compose up`
 
 13. Created explanation.md file and modified it as the commit messages in the repo will explain.
+
+## 6. Successful running of the applications and if not, debugging measures applied.
+The client side successfully executed on port 3000.
+
+**Client Side**
+!["Client side"](Images/frontendwebsite.jpeg)

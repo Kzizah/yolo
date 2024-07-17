@@ -4,7 +4,7 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile  # Backend uses a Dockerfile
+      dockerfile: dockerfile  # Backend uses a Dockerfile
     image: kzizah/yolo-backend:1.0.0  # Add your desired tag here
     ports:
       - "5000:5000"  # Expose port 5000 for the backend
@@ -28,7 +28,7 @@ services:
       - yolo-network  # Attach client to the yolo-network
 
   mongo:
-    image: mongo:6.0  # Use the latest stable MongoDB version (6.0)
+    image: mongo:latest  # Use the latest stable MongoDB version (6.0)
     ports:
       - "27017:27017"  # Expose port 27017 for MongoDB
     volumes:
