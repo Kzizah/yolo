@@ -170,7 +170,7 @@ To achieve the task the following git workflow was used:
 ## 6. Successful running of the applications and if not, debugging measures applied.
 
 
-**Client Side**
+1. **Client Side**
 The client side successfully executed on port 3000.
 
 !["Client side"](images/successful_compilation.png)
@@ -178,3 +178,14 @@ The client side successfully executed on port 3000.
 It also successfully executed on the browser.
 
 !["Client side"](images/frontendwebsite.png)
+
+
+2. **Backend Side**
+The backend side successfuly executed on port 5000.
+
+!["Backend Dockerfile"](images/backendsuccessfullconnection.png)
+
+It also successfully stored data after clicking the add product.
+
+!["Backend Dockerfile"](images/backendimage.png)
+
