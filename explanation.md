@@ -12,49 +12,48 @@
 **Client Dockerfile**
 
 ```
-# Build stage
-FROM node:16-alpine3.16 as build-stage
+# Stage 1: Builder - Install dependencies
+FROM alpine:latest AS builder
 
-# Set the working directory inside the container
-WORKDIR /client
+# Install Node.js
+RUN apk add --no-cache nodejs npm
+
+# Set working directory
+WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies and clears the npm cache and removes any temporary files
-RUN npm install --only=production && \
-    npm cache clean --force && \
-    rm -rf /tmp/*
+# Install dependencies
+RUN npm install
+
+# Stage 2: Build1 - Build the application
+FROM builder AS build1
 
 # Copy the rest of the application code
 COPY . .
 
-# Build the application and  remove development dependencies
-RUN npm run build && \
-    npm prune --production
+# Build the application
+RUN npm run build
 
-# Production stage
-FROM node:16-alpine3.16 as production-stage
+# Stage 3: Build2 - Use a lightweight Node.js image to run the application
+FROM alpine:latest AS build2
 
-WORKDIR /client
+# Install Node.js
+RUN apk add --no-cache nodejs npm
 
-# Copy only the necessary files from the build stage
-COPY --from=build-stage /client/build ./build
-COPY --from=build-stage /client/public ./public
-COPY --from=build-stage /client/src ./src
-COPY --from=build-stage /client/package*.json ./
+# Set working directory
+WORKDIR /app
 
-# Set the environment variable for the app
-ENV NODE_ENV=production
+# Copy only the built application from the previous stage
+COPY --from=build1 /app ./
 
-# Expose the port used by the app
+# Expose port (can be adjusted based on your application)
 EXPOSE 3000
 
-# Prune the node_modules directory to remove development dependencies and clears the npm cache and removes any temporary files
+# Start the application (modify based on your start script)
+CMD [ "npm", "start" ]
 
-
-# Start the application
-CMD ["npm", "start"]
 
 ```
 **Backend Dockerfile**
@@ -169,8 +168,13 @@ To achieve the task the following git workflow was used:
 13. Created explanation.md file and modified it as the commit messages in the repo will explain.
 
 ## 6. Successful running of the applications and if not, debugging measures applied.
-The client side successfully executed on port 3000.
-!["Client side"](images/successful_compilation.png)
+
 
 **Client Side**
+The client side successfully executed on port 3000.
+
+!["Client side"](images/successful_compilation.png)
+
+It also successfully executed on the browser.
+
 !["Client side"](images/frontendwebsite.png)
