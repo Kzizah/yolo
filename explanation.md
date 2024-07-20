@@ -219,7 +219,7 @@ Here are the links to the dockerhub images I pushed for this project:
 
 
 **Dockerhub Frontend**
-!["Backend Dockerfile"](images/dockerclient.png)
+- ["Dockerhub Frontend"](images/dockerclient.png)
 
 **Dockerhub Backend**
-!["Backend Dockerfile"](images/dockerbackend.png)
+- ["Dockerhub Backend"](images/dockerbackend.png)
