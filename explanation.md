@@ -1,7 +1,7 @@
 ## 1. Choice of Base Image
  The base image used to build the containers is `node:16-alpine3.16`. This image is derived from the Alpine Linux distribution, making it lightweight and compact. Additionally, it includes Node.js version 16, which exceeds the version required by the application.
  Used 
- 1. Client:`node:16-alpine3.16`
+ 1. Client:`alpine:latest AS builder`
  2. Backend: `node:16-alpine3.16`
  3.Mongo : `mongo:6.0 `
        
@@ -204,6 +204,9 @@ It also successfully stored data after clicking the add product.
 
 ## 7.  Docker image tag naming standards for ease of identification of images and containers. 
 used `docker image ls` to check images have tags as follows.
+- Images are tagged using this versioning (`v1.0.0`):
+  - `kzizah/yolo-client:v1.0.0`
+  - `kzizah/yolo-backend:v1.0.0`
 
 !["Docker tags"](images/dockerimagetags.png)
 
