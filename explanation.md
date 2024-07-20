@@ -3,7 +3,7 @@
  Used 
  1. Client:`alpine:latest AS builder`
  2. Backend: `node:16-alpine3.16`
- 3.Mongo : `mongo:6.0 `
+ 3. Mongo : `mongo:6.0 `
        
 
 ## 2. Dockerfile directives used in the creation and running of each container.
@@ -214,12 +214,12 @@ used `docker image ls` to check images have tags as follows.
 ## 8. Screenshot of your deployed image on DockerHub
 
 Here are the links to the dockerhub images I pushed for this project:
-- [Client](https://hub.docker.com/repository/docker/kzizah/yolo-client/general)
-- [Backend](https://hub.docker.com/repository/docker/kzizah/yolo-backend/general)
+- [yolo-client](https://hub.docker.com/repository/docker/kzizah/yolo-client/general)
+- [yolo-backend](https://hub.docker.com/repository/docker/kzizah/yolo-backend/general)
 
 - **Screenshots**
 - Dockerhub Frontend
- - !["Dockerhub Frontend"](images/dockerclient.png)
+ !["Dockerhub Frontend"](images/dockerclient.png)
 
 - Dockerhub Backend
- - !["Dockerhub Backend"](images/dockerbackend.png)
+ !["Dockerhub Backend"](images/dockerbackend.png)
