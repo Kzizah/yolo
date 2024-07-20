@@ -203,6 +203,9 @@ It also successfully stored data after clicking the add product.
   -`docker network ls / docker network inspect` to check and inspect available networks.
 
 ## 7.  Docker image tag naming standards for ease of identification of images and containers. 
+used `docker image ls` to check images have tags as follows.
+
+!["Docker tags"](images/dockerimagetags.png)
 
 
 ## 8. Screenshot of your deployed image on DockerHub
