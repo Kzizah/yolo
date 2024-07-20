@@ -217,9 +217,9 @@ Here are the links to the dockerhub images I pushed for this project:
 - [Client](https://hub.docker.com/repository/docker/kzizah/yolo-client/general)
 - [Backend](https://hub.docker.com/repository/docker/kzizah/yolo-backend/general)
 
-
-**Dockerhub Frontend**
+**Screenshots**
+Dockerhub Frontend
  !["Dockerhub Frontend"](images/dockerclient.png)
 
-**Dockerhub Backend**
+Dockerhub Backend
  !["Dockerhub Backend"](images/dockerbackend.png)
