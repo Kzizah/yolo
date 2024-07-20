@@ -189,3 +189,25 @@ It also successfully stored data after clicking the add product.
 
 !["Backend Dockerfile"](images/backendimage.png)
 
+3. **Debbugging Measures used**
+
+- `docker build -t <imagename:version>` to build an image.
+  - `docker images / docker image ls` to check images built.
+  - `docker ps` to check running containers.
+   - `docker ps -a` to check all container status.
+  - `docker login` to log in to DockerHub.
+  - `docker push <username:image>` to deploy image to DockerHub.
+  - `docker compose down` followed by `docker compose up` for restarts.
+  - `docker compose logs push` to deploy it to Dockerhub.
+  - `docker compose logs <service>` for logs.
+  -`docker network ls / docker network inspect` to check and inspect available networks.
+
+## 7.  Docker image tag naming standards for ease of identification of images and containers. 
+
+
+## 8. Screenshot of your deployed image on DockerHub
+**Dockerhub Frontend**
+!["Backend Dockerfile"](images/dockerclient.png)
+
+**Dockerhub Backend**
+!["Backend Dockerfile"](images/dockerbackend.png)
