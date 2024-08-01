@@ -1,0 +1,2 @@
+# defaults file for mongodb-install-run
+mongodb_version: "4.4"

@@ -1,0 +1,6 @@
+---
+# tasks file for Install-pip3
+- name: Install pip3 (package manager for Python 3)
+  apt:
+    name: python3-pip
+    state: present

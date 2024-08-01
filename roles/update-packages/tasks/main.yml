@@ -1,0 +1,6 @@
+---
+# tasks file for update-packages
+- name: Update package lists
+  apt:
+    update_cache: yes
+    state: present
