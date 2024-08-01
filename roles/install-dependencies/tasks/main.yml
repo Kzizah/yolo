@@ -1,0 +1,10 @@
+---
+# tasks file for install-dependencies
+- name: Install dependencies
+  apt:
+        name: 
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
