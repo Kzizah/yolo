@@ -2,18 +2,27 @@
   become: true
   vars_files:
     - vars.yml
+    - dest.yaml
+
+  tasks:
+    - name: Debug pathtoyolo
+      debug:
+        msg: "pathtoyolo is {{ pathtoyolo }}"
 
   roles: 
     - test-connectivity
     - update-packages
+    - install-dependencies
     - install-docker-engine
     - start-docker
     - install-pip3
     - DockerClient-install
     - mongodb-install-run
     - DockerCompose-install
-   
-   
+    - git-clone-repository
+    
+
+
     
   
   

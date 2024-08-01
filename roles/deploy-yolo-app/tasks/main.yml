@@ -1,24 +1,14 @@
 ---
 # tasks file for deploy-yolo-app
-- name: Copy Docker Compose file
-  copy:
-      src: "{{ pathtoyolo }}"
-      dest: /home/vagrant/docker-compose.yaml
-      become: true
+
+# - name: Copy Docker Compose file
+#   copy:
+#       src: "{{ pathtoyolo }}"
+#       dest: /home/vagrant/docker-compose.yaml
+#       become: true
 
 
 - name: Run Docker Compose
-  command: docker-compose -f /home/vagrant/docker-compose.yaml up -d
+  command: docker-compose -f /home/vagrant/yolo/docker-compose.yaml up -d
   tags:
       - deploy
-
-- name: Display Docker Compose result
-  debug:
-        msg: "Docker Compose output: {{ docker_compose_result.stdout }}"
-
-- name: Confirm Docker Compose success
-  assert:
-        that:
-          - "'done' in docker_compose_result.stdout"
-          - docker_compose_result.rc == 0
-        msg: "Docker Compose did not run successfully. See output above for details."
