@@ -36,7 +36,7 @@
     - curl
     - gnupg
     - python3-pip
-  become: yes
+  become: true
 
 - name: Install pymongo
   pip:
