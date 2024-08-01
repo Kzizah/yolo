@@ -1,0 +1,20 @@
+- hosts: all
+  become: true
+  vars_files:
+    - vars.yml
+
+  roles: 
+    - test-connectivity
+    - update-packages
+    - install-docker-engine
+    - start-docker
+    - install-pip3
+    - DockerClient-install
+    - mongodb-install-run
+    - DockerCompose-install
+   
+   
+    
+  
+  
+  
