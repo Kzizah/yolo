@@ -20,6 +20,7 @@
     - mongodb-install-run
     - DockerCompose-install
     - git-clone-repository
+    - deploy-yolo-app
     
 
 
