@@ -1,0 +1,17 @@
+- name: Install Python 3 and pip3
+  apt:
+        name:
+          - python3
+          - python3-pip
+        state: present
+
+- name: Upgrade pip to the latest version
+  shell: python3 -m pip install --upgrade pip
+  args:
+        warn: no
+
+- name: Install pipenv
+  pip:
+        name: pipenv
+        state: present
+        executable: pip3

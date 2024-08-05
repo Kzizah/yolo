@@ -1,0 +1,35 @@
+---
+# tasks file for gitclone
+
+
+
+# Check if YOLO repository has been cloned
+- name: Check if YOLO repository has been cloned
+  stat:
+    path: "{{ repo_dest }}"
+  register: yolo_repo
+
+- name: Print YOLO repository status
+  debug:
+    msg: "YOLO repository clone status: {{ yolo_repo.stat.exists }}"
+
+- name: Clone YOLO repository if it does not exist
+  git:
+    repo: "{{ repo_url }}"
+    dest: "{{ repo_dest }}"
+    single_branch: yes
+    version: master
+  when: not yolo_repo.stat.exists
+  tags:
+    - clone
+
+- name: Ensure backend directory exists
+  file:
+    path: "{{ repo_dest }}/backend"
+    state: directory
+
+- name: Ensure client directory exists
+  file:
+    path: "{{ repo_dest }}/client"
+    state: directory
+

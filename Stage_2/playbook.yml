@@ -1,0 +1,27 @@
+- hosts: all
+  become: true
+  vars_files:
+    - vars.yml
+    - dest.yaml
+
+  vars:
+    repo_url: "https://github.com/Kzizah/yolo.git"
+    repo_dest: "/home/ubuntu/yolo"
+
+  tasks:
+    - name: Debug pathtoyolo
+      debug:
+        msg: "pathtoyolo is {{ pathtoyolo }}"
+
+  roles:
+    - test-connectivity
+    - update-packages
+    - install-dependencies
+    # - install-docker-engine
+    # - start-docker
+    # - install-pip3
+    # - DockerClient-install
+    - mongodb-install-run
+    - DockerCompose-install
+    - git-clone-repository
+    # - deploy-yolo-app
