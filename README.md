@@ -1,6 +1,6 @@
 ## Week 8 IP 4 Orchestration
 
-## 1. TO install the Google Cloud SDK
+## 1. To install the Google Cloud SDK
 
 1. Make sure your system is up to date.<br>
 
@@ -39,6 +39,16 @@ You'll be prompted to log in to your Google account and select a default project
 
 10. If you receive an error related to missing components, you may need to install additional components like kubectl:<br>
 `gcloud components install kubectl`
+
+## 2. Enable the Kubernetes Engine API
+you can enable the API using the gcloud command:<br>
+`gcloud services enable container.googleapis.com`
+
+## 3.  Creating the GKE Cluster
+`gcloud container clusters create yolo-cluster \--num-nodes=3 \--zone us-central1-a`
+
+
+
 
 
 
