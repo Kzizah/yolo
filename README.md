@@ -3,12 +3,15 @@
 ## 1. To install the Google Cloud SDK
 
 1. Make sure your system is up to date.<br>
-
-`sudo apt update && sudo apt upgrade -y`
+```bash 
+sudo apt update && sudo apt upgrade -y
+```
 
 2. Download the latest version of the Google Cloud SDK using curl.<br>
 
-`curl https://sdk.cloud.google.com | bash`
+```bash
+curl https://sdk.cloud.google.com | bash
+```
 
 
 3. After running the script, restart your shell to ensure the gcloud command is available:.<br>
@@ -20,13 +23,14 @@
 
 During the installation, you'll be prompted with various options, such as whether to update your .bashrc file to include the gcloud command. It's generally a good idea to accept the defaults.
 
-5. After the installation, initialize the Google Cloud SDK.<br>
+5. After the installation, initialize the Google Cloud SDK on your directory.<br>
 `gcloud init`
 You'll be prompted to log in to your Google account and select a default project. Follow the on-screen instructions to complete the setup.
 
 6. To verify that the installation was successful, run the following command:<br>
 `gcloud --version`
 
+Incase of error:
 7. First, make sure the Google Cloud SDK is installed in the correct directory. You should have installed it in the google-cloud-sdk directory. Navigate to this directory and check if the gcloud executable is present:<br>
 `cd ~/Desktop/DevOps/yolo/google-cloud-sdk/bin`
 `ls -l gcloud`
@@ -39,16 +43,39 @@ You'll be prompted to log in to your Google account and select a default project
 `gcloud init`
 
 10. If you receive an error related to missing components, you may need to install additional components like kubectl:<br>
-`gcloud components install kubectl`
+```bash
+    gcloud components install kubectl
+```
 
 ## 2. Enable the Kubernetes Engine API
 you can enable the API using the gcloud command:<br>
-`gcloud services enable container.googleapis.com`
+```bash
+gcloud services enable container.googleapis.com
+```
 
 ## 3.  Creating the GKE Cluster
-`gcloud container clusters create yolo-cluster \--num-nodes=3 \--zone us-central1-a`
+```bash
+     gcloud container clusters create yolo-app \--num-nodes=3 \--zone us-central1-a
+```
+
+**To use this cluster**
+```bash
+     gcloud container clusters get-credentials yolo-app --zone us-central1-a --project yolo-app-432518
+```
+
+**Verify the configuration**
+```bash
+       kubectl config current-context
+```
 
 ## 4. Apply the Kubernetes Manifests
+Navigate to the k8s-manifest folder and write this command:
+
+```bash
+     kubectl apply -f .
+```
+or
+
  ```bash
     kubectl apply -f persistent-volume.yaml
     kubectl apply -f persistent-volume-claim.yaml
@@ -62,13 +89,35 @@ you can enable the API using the gcloud command:<br>
 
 ## 5. Verify the deployments
 
-Check the status of the services:
+**Check Deployments**
+This checks if it has been deployed
+```bash
+    kubectl get deployments
+```
+
+**Check pods**
+Thid checks if the deployments are running
+```bash
+     kubectl get pods
+```
+
+**Check the status of the services**
 
     ```bash
-    kubectl get services
+      kubectl get services
+
+      or 
+      
+      kubectl get svc
+
     ```
 
     Ensure the `EXTERNAL-IP` is assigned to access the frontend and backend.
+
+**Check for Statefulsets**
+```bash
+    kubectl get statefulsets
+```
 
 ## 6. Kubernetes Resources
 
