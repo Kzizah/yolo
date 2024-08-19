@@ -47,6 +47,64 @@ you can enable the API using the gcloud command:<br>
 ## 3.  Creating the GKE Cluster
 `gcloud container clusters create yolo-cluster \--num-nodes=3 \--zone us-central1-a`
 
+## 4. Apply the Kubernetes Manifests
+ ```bash
+    kubectl apply -f persistent-volume.yaml
+    kubectl apply -f persistent-volume-claim.yaml
+    kubectl apply -f database-statefulset.yaml
+    kubectl apply -f database-service.yaml
+    kubectl apply -f backend-deployment.yaml
+    kubectl apply -f backend-service.yaml
+    kubectl apply -f frontend-deployment.yaml
+    kubectl apply -f frontend-service.yaml
+```
+
+## 5. Verify the deployments
+
+Check the status of the services:
+
+    ```bash
+    kubectl get services
+    ```
+
+    Ensure the `EXTERNAL-IP` is assigned to access the frontend and backend.
+
+## 6. Kubernetes Resources
+
+### a. MongoDB StatefulSet
+
+The MongoDB StatefulSet ensures data persistence even if pods restart:
+
+- **File**: `database-statefulset.yaml`
+- **Service**: `database-service.yaml`
+
+### 2. Backend Deployment
+
+The backend service handles API requests:
+
+- **File**: `backend-deployment.yaml`
+- **Service**: `backend-service.yaml`
+
+### 3. Frontend Deployment
+
+The frontend serves the React application:
+
+- **File**: `frontend-deployment.yaml`
+- **Service**: `frontend-service.yaml`
+
+## Connecting to MongoDB
+
+The backend connects to MongoDB using the following connection string:
+
+```javascript
+const mongodb_url = 'mongodb://mongo-service:27017/yolomy';
+
+
+
+
+
+
+
 
 
 
