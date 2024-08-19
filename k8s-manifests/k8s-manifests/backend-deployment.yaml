@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
+  labels:
+    app: yolo-backend
 spec:
   replicas: 3
   selector:
@@ -18,5 +20,7 @@ spec:
         ports:
         - containerPort: 5000
         env:
-        - name: MONGODB_URL
-          value: mongodb://mongo-service:27017/yolomy
+        - name: MONGODB_URI
+          value: "mongodb://mongo-service:27017/yolomy"
+        - name: PORT
+          value: "5000"
