@@ -8,10 +8,11 @@
 
 2. Download the latest version of the Google Cloud SDK using curl.<br>
 
-`curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-445.0.0-linux-x86_64.tar.gz`
+`curl https://sdk.cloud.google.com | bash`
 
-3. Extract the downloaded archive.<br>
-`tar -xvzf google-cloud-sdk-445.0.0-linux-x86_64.tar.gz`
+
+3. After running the script, restart your shell to ensure the gcloud command is available:.<br>
+`exec -l $SHELL`
 
 4. Navigate to the extracted directory and run the installation script.<br>
 `cd google-cloud-sdk`
