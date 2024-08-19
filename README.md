@@ -1,4 +1,10 @@
 ## Week 8 IP 4 Orchestration
+Front end running on this IP
+
+```bash
+    34.69.21.13
+```
+      
 
 ## 1. To install the Google Cloud SDK
 
